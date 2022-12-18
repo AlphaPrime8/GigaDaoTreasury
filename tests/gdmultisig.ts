@@ -97,7 +97,7 @@ describe("gdmultisig", () => {
             })
             .signers([treasury, wsolVault, usdcVault, gigsVault])
             .rpc();
-        console.log("Your transaction signature", tx);
+        // console.log("Your transaction signature", tx);
     });
 
     it("Execute Withdraw", async () => {
@@ -112,10 +112,10 @@ describe("gdmultisig", () => {
             owner1,
             vault_amount,
         );
-        console.log("minted usdc to vault: ", result);
+        // console.log("minted usdc to vault: ", result);
 
         let receiverWsolAta = await getOrCreateAssociatedTokenAccount(program.provider.connection, owner1, NATIVE_MINT, program.provider.publicKey);
-        console.log("got wsol ata: ", receiverWsolAta.address.toString());
+        // console.log("got wsol ata: ", receiverWsolAta.address.toString());
 
         let amount_usd = new anchor.BN(500);
         let withdraw_usdc = true;
@@ -135,11 +135,7 @@ describe("gdmultisig", () => {
                 rent: anchor.web3.SYSVAR_RENT_PUBKEY,
             })
             .rpc();
-        console.log("Your transaction signature", tx);
+        // console.log("Your transaction signature", tx);
     });
-
-
-
-
 
 });
