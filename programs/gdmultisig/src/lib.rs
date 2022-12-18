@@ -105,8 +105,10 @@ pub mod gdmultisig {
              let cpi_ctx = CpiContext::new_with_signer(cpi_program, cpi_accounts, signer);
 
              // convert at rate of $10/SOL
-             let amount_sol_to_withdraw = amount / 10;
-             let amount_lamports_to_withdraw = amount_sol_to_withdraw * 1_000_000_000; // wsol has 9 decimals
+             let amount_sol_to_withdraw = amount as f64 / 10.;
+             msg!("amount sol withdraw: {:?}", amount_sol_to_withdraw);
+             let amount_lamports_to_withdraw = (amount_sol_to_withdraw * 1_000_000_000.) as u64; // wsol has 9 decimals
+             msg!("amount lams withdraw: {:?}", amount_lamports_to_withdraw);
 
              token::transfer(cpi_ctx, amount_lamports_to_withdraw)?; //
              amount_withdrawn = amount_lamports_to_withdraw / 1_000_000_000 * 10;
