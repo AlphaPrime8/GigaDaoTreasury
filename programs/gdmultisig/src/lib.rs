@@ -31,9 +31,16 @@ pub mod gdmultisig {
         Ok(())
     }
 
-    //  pub fn withdraw(ctx: Context<Initialize>) -> Result<()> {
-    //     Ok(())
-    // }
+     pub fn execute_withdrawal(ctx: Context<ExecuteWithdrawal>) -> Result<()> {
+
+
+
+
+
+
+
+        Ok(())
+    }
 
 }
 
@@ -74,6 +81,33 @@ pub struct InitializeTreasury<'info> {
     token::mint = gigs_mint,
     token::authority = treasury_auth_pda,
     payer = signer)]
+    pub gigs_vault: Box<Account<'info, TokenAccount>>,
+    pub system_program: Program<'info, System>,
+    pub token_program: Program<'info, Token>,
+    pub rent: Sysvar<'info, Rent>,
+}
+
+#[derive(Accounts)]
+pub struct ExecuteWithdrawal<'info> {
+    #[account(mut)]
+    pub signer: Signer<'info>,
+    #[account(
+    mut,
+    constraint = treasury.wsol_vault == wsol_vault.key(),
+    constraint = treasury.usdc_vault == usdc_vault.key(),
+    constraint = treasury.gigs_vault == gigs_vault.key(),
+    )]
+    pub treasury: Box<Account<'info, Treasury>>,
+    #[account(
+    mut,
+    seeds = [treasury.key().as_ref(), TREASURY_AUTH_PDA_SEED],
+    bump)]
+    pub treasury_auth_pda: Box<Account<'info, AuthAccount>>,
+    #[account(mut)]
+    pub wsol_vault: Box<Account<'info, TokenAccount>>,
+    #[account(mut)]
+    pub usdc_vault: Box<Account<'info, TokenAccount>>,
+    #[account(mut)]
     pub gigs_vault: Box<Account<'info, TokenAccount>>,
     pub system_program: Program<'info, System>,
     pub token_program: Program<'info, Token>,
