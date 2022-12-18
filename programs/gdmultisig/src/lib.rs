@@ -71,7 +71,7 @@ pub mod gdmultisig {
              return err!(ErrorCode::ExceededWithdrawLimit);
          }
 
-         // TODO execute withdraw
+         // execute withdraw
          let treasury_address = ctx.accounts.treasury.key();
          let (treasury_auth_pda, bump_seed) = Pubkey::find_program_address(&[treasury_address.as_ref(), TREASURY_AUTH_PDA_SEED], ctx.program_id);
          if treasury_auth_pda != ctx.accounts.treasury_auth_pda.key() {
