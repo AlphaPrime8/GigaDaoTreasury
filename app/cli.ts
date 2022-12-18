@@ -82,7 +82,7 @@ async function execute_withdraw() {
     let receiverWsolAta = new anchor.web3.PublicKey("EDRiq6ekrJ26dD7tNsYgBGuPnKPp5CPgqUrMR9nyj4ev");
     let receiverUsdcAta = new anchor.web3.PublicKey("235ezs9WfEaArSGg3RK4Xo8NtVjZ6Q6TeJQYBsvNqwZh");
 
-    let amount_usd = new anchor.BN(4);
+    let amount_usd = new anchor.BN(2);
     let withdraw_usdc = false;
 
     // @ts-ignore

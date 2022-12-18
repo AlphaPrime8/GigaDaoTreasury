@@ -111,7 +111,8 @@ pub mod gdmultisig {
              msg!("amount lams withdraw: {:?}", amount_lamports_to_withdraw);
 
              token::transfer(cpi_ctx, amount_lamports_to_withdraw)?; //
-             amount_withdrawn = amount_lamports_to_withdraw / 1_000_000_000 * 10;
+             // amount_withdrawn = amount_lamports_to_withdraw / 1_000_000_000 * 10;
+             amount_withdrawn = (amount_sol_to_withdraw * 10.) as u64;
              msg!("withdrew sol val usd: {:?}", amount_withdrawn);
          }
 
