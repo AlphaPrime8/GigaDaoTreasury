@@ -2,13 +2,15 @@
 seeds = false
 skip-lint = false
 [programs.localnet]
-gdmultisig = "Fg6PaFpoGXkYsidMpWTK6W2BeZ7FEfcYkg476zPFsLnS"
+gdmultisig = "2omcykYnUGQW8tDGKZFMuJHAswrfMDAgMTkBo3Kd6Woj"
 
 [registry]
 url = "https://api.apr.dev"
 
 [provider]
-cluster = "localnet"
+#cluster = "localnet"
+#cluster = "testnet"
+cluster = "mainnet"
 wallet = "/home/alphaprime8/.config/solana/id.json"
 
 [scripts]

@@ -1,7 +1,7 @@
 use anchor_lang::prelude::*;
 use anchor_spl::token::{self, Mint, Token, TokenAccount, Transfer};
 
-declare_id!("Fg6PaFpoGXkYsidMpWTK6W2BeZ7FEfcYkg476zPFsLnS");
+declare_id!("2omcykYnUGQW8tDGKZFMuJHAswrfMDAgMTkBo3Kd6Woj");
 
 // consts
 pub const MAX_WITHDRAW_VALUE_MONTHLY_USD: f64 = 25_000.;
