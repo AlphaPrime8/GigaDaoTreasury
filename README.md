@@ -2,6 +2,8 @@
 
 Mainnet Program ID: `2omcykYnUGQW8tDGKZFMuJHAswrfMDAgMTkBo3Kd6Woj`
 
+GigaDAO Treasury Account: `CQ7aUoeNfDxGGaohMcbe5XRXvVzcuL3xVA1cr2Z8jKbh`
+
 This Solana on-chain program is implemented in anchorlang framework and serves as GigaDAO's primary treasury.
 
 Team withdrawals are capped at $25k/mo.
